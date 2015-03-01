@@ -15,14 +15,15 @@ public class target : MonoBehaviour {
 
 	void OnCollisionEnter (Collision col)
 		{
-		if(col.gameObject.name == "target" || col.gameObject.name == "target(Clone)" )
-			{
-			print ("Sean");
-			Destroy(col.gameObject);
-			Destroy(this);
-			Vector3 position = new Vector3(Random.Range(-5.0F, 5.0F), 3, Random.Range(-5.0F, 5.0F));
-			GameObject targetClone = (GameObject) Instantiate(newTarget, position, transform.rotation);
-
-			}
+				if (col.gameObject.name != "OVRPlayerController") {
+						if (col.gameObject.name == "target" || col.gameObject.name == "target(Clone)") {
+								Destroy (col.gameObject);
+								Vector3 position = new Vector3 (Random.Range (-5.0F, 5.0F), 3, Random.Range (-5.0F, 5.0F));
+								GameObject targetClone = (GameObject)Instantiate (newTarget, position, transform.rotation);
+						}
+			Debug.Log (col.gameObject.name);
+						Destroy (this);
+						this.gameObject.SetActive (false);
+				}
 		}
 }
