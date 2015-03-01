@@ -64,19 +64,25 @@ public class JointOrientation : MonoBehaviour
             updateReference = true;
         }
 
+
 		if (thalmicMyo.pose == Pose.Fist) 
 				{
 				if (reloadTime < 0)
 					reloadTime = 1f;	
 				else if (reloadTime == 1f)
 					{
-				GameObject rocketClone = (GameObject) Instantiate(rocket, crossHair.position, transform.rotation);
-						rocketClone.rigidbody.velocity = transform.forward * speed;
-						reloadTime -= Time.deltaTime;	
+					Vector3 shot = transform.forward;
+					if (Physics.Raycast(crossHair.position, shot, 35))
+						Debug.Log("There is something in front of the object!");
+
+					// also I removed gravity and increased speed
+					GameObject rocketClone = (GameObject) Instantiate(rocket, crossHair.position, transform.rotation);
+					rocketClone.rigidbody.velocity = transform.forward * speed;
+					reloadTime -= Time.deltaTime;						
 					}
 				else
 					{
-						reloadTime -= Time.deltaTime;
+					reloadTime -= Time.deltaTime;
 					}
 				}
 		else {
