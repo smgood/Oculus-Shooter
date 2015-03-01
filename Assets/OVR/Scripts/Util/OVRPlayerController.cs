@@ -94,9 +94,21 @@ public class OVRPlayerController : MonoBehaviour
 	private bool prevHatRight = false;
 	private float SimulationRate = 60f;
 	private float gameTime;
+	private int count;
 
 	void Start () {
 		gameTime = 10.0f;
+	}
+
+	void OnTriggerEnter(Collider other) {
+		if (other.gameObject.tag == "FoodItem") {
+			other.gameObject.SetActive(false);
+			count ++;
+			Debug.Log("Yum Yum: " + count);
+			if (count == 48) {
+				Debug.Log ("GAME OVER – YOU WIN");
+			}
+		}
 	}
 
 	
