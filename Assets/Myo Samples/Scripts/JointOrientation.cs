@@ -64,14 +64,16 @@ public class JointOrientation : MonoBehaviour
             updateReference = true;
         }
 
-
+		Vector3 shot = transform.forward;
+		Debug.DrawRay(crossHair.position, shot, Color.green);
+		
 		if (thalmicMyo.pose == Pose.Fist) 
 				{
 				if (reloadTime < 0)
 					reloadTime = 1f;	
 				else if (reloadTime == 1f)
 					{
-					Vector3 shot = transform.forward;
+					
 					if (Physics.Raycast(crossHair.position, shot, 35))
 						Debug.Log("There is something in front of the object!");
 
