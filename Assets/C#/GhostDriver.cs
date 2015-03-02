@@ -16,6 +16,8 @@ public class GhostDriver : MonoBehaviour {
 	void Start () {	
 		GameObject red = Instantiate(Red, mStart_Red.position, Quaternion.identity) as GameObject;
 		red.transform.parent = this.gameObject.transform;
+		red.transform.Rotate(new Vector3(0, 90, 0));
+		red.SetActive(true);
 	}
 	
 	// Update is called once per frame
