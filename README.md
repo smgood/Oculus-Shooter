@@ -1,2 +1,2 @@
 # Oculus-Shooter
-HackIllinois Project. Use Oculus and Myo to shoot targers
+HackIllinois Project. Use Oculus and Myo to shoot targets
